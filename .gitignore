@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Firebase admin credentials (use FIREBASE_SERVICE_ACCOUNT_JSON env var on Render instead)
+firebase-service-account.json
+
+# Backups and logs
+backups/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -188,7 +188,7 @@ async function initDatabase() {
         vehicle_id INTEGER REFERENCES vehicles(id) ON DELETE CASCADE,
         device_id VARCHAR(50),
         vin NUMERIC(6,2),
-        rpm INTEGER,
+        rpm TEXT,
         temperature NUMERIC(6,2),
         km NUMERIC(10,2),
         recorded_at TIMESTAMPTZ NOT NULL,
@@ -198,6 +198,7 @@ async function initDatabase() {
         ON vehicle_telemetry (vehicle_id, recorded_at DESC);
       CREATE INDEX IF NOT EXISTS idx_telemetry_device_recorded
         ON vehicle_telemetry (device_id, recorded_at DESC);
+      ALTER TABLE vehicle_telemetry ALTER COLUMN rpm TYPE TEXT USING rpm::text;
     `);
 
     console.log('New columns and tables added successfully.');

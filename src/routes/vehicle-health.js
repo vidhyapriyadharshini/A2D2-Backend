@@ -32,7 +32,7 @@ function parseSample(s) {
       vehicle_id: vehicleId,
       device_id: s.device_id ? String(s.device_id).slice(0, 50) : null,
       vin: s.vin != null ? Number(s.vin) : null,
-      rpm: s.rpm != null ? Math.trunc(Number(s.rpm)) : null,
+      rpm: s.rpm != null ? String(s.rpm).slice(0, 200) : null,
       temperature: s.temperature != null ? Number(s.temperature) : null,
       km: s.km != null ? Number(s.km) : null,
       recorded_at: recordedAt,
